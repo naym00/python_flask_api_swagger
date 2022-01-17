@@ -16,7 +16,7 @@ parameters:
 
   - name: "title"
     in: "query"
-    description: "Title or Hotelname"
+    description: "Hotelname"
     type: "string"
 
   - name: "location"
@@ -27,7 +27,7 @@ parameters:
   - name: "price"
     in: "query"
     type: "string"
-    description: "Hotel rent price"
+    description: "Rent of Hotel"
     type: "integer"
     
   - name: "amenities"
@@ -37,7 +37,7 @@ parameters:
 
     name: "sort_by_price"
     in: "query"
-    description: "To sort by price please type 'true'"
+    description: "asc or desc"
     type: "string"
 
 responses:

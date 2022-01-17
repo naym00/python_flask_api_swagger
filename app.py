@@ -152,8 +152,10 @@ def resources():
         for x in results:
             data = {'id': x[0], 'location': x[1], 'hotel_name': x[2], 'rating': float(x[3]), 'stars': int(x[4]), 'cost': int(x[5].replace(",","")), 'facility': x[6], 'url': x[7]}
             hotels.append(data)
-        if request.args.get('sort_by_price') == 'true':
+        if request.args.get('sort_by_price') == 'asc':
             hotels.sort(key=lambda x: x['cost'])
+        elif request.args.get('sort_by_price') == 'desc':
+            hotels.sort(key=lambda x: x['cost'], reverse=True)
         return jsonify(hotels)
        
 app.run()
