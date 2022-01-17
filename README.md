@@ -24,10 +24,13 @@ Then fullfill other fields.
 - [x] pip install Flask-JWT-Extended
 - [x] pip install flasgger
 ## Step 4:
+##### while virtual environment is activated then tell Flask where to find the application (app.py in your case) using the FLASK_APP environment variable with the following command.
 - [x] export FLASK_APP=app
-- [x] export FLASK_ENV=development
 ## Step 5:
-- [x] pip install -r requirements.txt python3 app.py
+##### Then specify that you want to run the application in development mode (so you can use the debugger to catch errors) with the FLASK_ENV environment variable.
+- [x] export FLASK_ENV=development
 ## Step 6:
-- [x] flask run
+- [x] pip install -r requirements.txt python3 app.py
+## Step 7:
+- [x] To run the project ```flask run```
 
