@@ -75,24 +75,24 @@ def resources():
             title_value = request.args.get('title')
             amenities_value = request.args.get('amenities')
             price_value = request.args.get('price')
-            location_value = request.args.get('location')                
-            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility=' + f'"{amenities_value}"' + ' and cost=' + f'"{price_value}"' + ' and location=' + f'"{location_value}"' 
+            location_value = request.args.get('location')         
+            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility LIKE' + f'"%{amenities_value}%"' + ' and cost=' + f'"{price_value}"' + ' and location=' + f'"{location_value}"' 
         elif title_ == True and amenities_ == True and price_ == True and location_ == False:
             title_value = request.args.get('title')
             amenities_value = request.args.get('amenities')
             price_value = request.args.get('price')
-            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility=' + f'"{amenities_value}"' + ' and cost=' + f'"{price_value}"'
+            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility LIKE' + f'"%{amenities_value}%"' + ' and cost=' + f'"{price_value}"'
 
         elif title_ == True and amenities_ == True and price_ == False and location_ == True:
             title_value = request.args.get('title')
             amenities_value = request.args.get('amenities')
             location_value = request.args.get('location')
-            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility=' + f'"{amenities_value}"' + ' and location=' + f'"{location_value}"'
+            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility LIKE' + f'"%{amenities_value}%"' + ' and location=' + f'"{location_value}"'
 
         elif title_ == True and amenities_ == True and price_ == False and location_ == False:
             title_value = request.args.get('title')
             amenities_value = request.args.get('amenities')
-            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility=' + f'"{amenities_value}"'
+            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility LIKE' + f'"%{amenities_value}%"'
 
         elif title_ == True and amenities_ == False and price_ == True and location_ == True:
             title_value = request.args.get('title')
@@ -108,7 +108,7 @@ def resources():
         elif title_ == True and amenities_ == False and price_ == False and location_ == True:
             title_value = request.args.get('title')
             location_value = request.args.get('location')
-            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and facility=' + ' and location=' + f'"{location_value}"'
+            sql='SELECT * FROM hotel_information WHERE hotel_name=' + f'"{title_value}"' + ' and location=' + f'"{location_value}"'
 
         elif title_ == True and amenities_ == False and price_ == False and location_ == False:
             title_value = request.args.get('title')
@@ -118,21 +118,21 @@ def resources():
             amenities_value = request.args.get('amenities')
             price_value = request.args.get('price')
             location_value = request.args.get('location')
-            sql='SELECT * FROM hotel_information WHERE facility=' + f'"{amenities_value}"' + ' and cost=' + f'"{price_value}"' + ' and location=' + f'"{location_value}"'
+            sql='SELECT * FROM hotel_information WHERE facility LIKE' + f'"%{amenities_value}%"' + ' and cost=' + f'"{price_value}"' + ' and location=' + f'"{location_value}"'
 
         elif title_ == False and amenities_ == True and price_ == True and location_ == False:
             amenities_value = request.args.get('amenities')
             price_value = request.args.get('price')
-            sql='SELECT * FROM hotel_information WHERE facility=' + f'"{amenities_value}"' + ' and cost=' + f'"{price_value}"'
+            sql='SELECT * FROM hotel_information WHERE facility LIKE' + f'"%{amenities_value}%"' + ' and cost=' + f'"{price_value}"'
 
         elif title_ == False and amenities_ == True and price_ == False and location_ == True:
             amenities_value = request.args.get('amenities')
             location_value = request.args.get('location')
-            sql='SELECT * FROM hotel_information WHERE facility=' + f'"{amenities_value}"' + ' and location=' + f'"{location_value}"'
+            sql='SELECT * FROM hotel_information WHERE facility LIKE' + f'"%{amenities_value}%"' + ' and location=' + f'"{location_value}"'
 
         elif title_ == False and amenities_ == True and price_ == False and location_ == False:
             amenities_value = request.args.get('amenities')
-            sql='SELECT * FROM hotel_information WHERE facility=' + f'"{amenities_value}"'
+            sql='SELECT * FROM hotel_information WHERE facility LIKE' + f'"%{amenities_value}%"'
 
         elif title_ == False and amenities_ == False and price_ == True and location_ == True:
             price_value = request.args.get('price')
@@ -145,7 +145,7 @@ def resources():
 
         elif title_ == False and amenities_ == False and price_ == False and location_ == True:
             location_value = request.args.get('location')
-            sql='SELECT * FROM hotel_information WHERE location=' + f'"{location_value}"'  
+            sql='SELECT * FROM hotel_information WHERE location=' + f'"{location_value}"'
 
         if sql == '':
             return jsonify({'message': 'Please insert combination of these or any of these title, amenities, price, location'})
