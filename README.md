@@ -1,6 +1,7 @@
 # python_flask_api_swagger
 
-##### From this project anyone can get json data using combination of these Hotel name, price, location, ratting, Amminities.
+##### From this project you can get hotel data in format of json using combination of these parameters Hotel name, price, location, ratting, Amminities.
+##### You can sort also by typing asc or desc in the sort_by_price field.  
 ##### Authentication Part: Hit this link ```http://127.0.0.1:5000/``` Click on post and type email ```nymur@w3engineers.com``` password ```admin```
 ##### Then you will get a token which is valid for 30 min.
 ##### After then to have json data click on get and paste token like this format ```Bearer your_token.
