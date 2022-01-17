@@ -11,8 +11,22 @@ Then fullfill other fields.
 - [x] Install Python
 - [x] Install XAMPP 
 
-## Step 1:
+## Step 1 Database:
 - [x] create a database named in hotel_database and then import hotel_database.sql
+Note: If the data_from_web.sql doesn't work then create table using the query bellow
+```
+CREATE TABLE hotel_database.hotel_information (
+  id int(11) NOT NULL AUTO INCREMENT,
+  location varchar(255) NOT NULL,
+  hotel_name varchar(500) NOT NULL,
+  rating varchar(20) DEFAULT NULL,
+  stars varchar(50) DEFAULT NULL,
+  cost varchar(50) DEFAULT NULL,
+  facility varchar(500) DEFAULT NULL,
+  url varchar(500) DEFAULT NULL
+);
+```
+
 - [x] virtualenv venv
 ## Step 2:
 - [x] source venv/bin/activate
