@@ -35,6 +35,11 @@ parameters:
     description: "Amenities Provided by Hotel"
     type: "string"
 
+    name: "sort_by_price"
+    in: "query"
+    description: "To sort by price please type 'true'"
+    type: "string"
+
 responses:
   "405":
     description: "Invalid input"

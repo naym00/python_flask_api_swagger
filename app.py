@@ -8,13 +8,11 @@ from static.swagger import swagger_config,template
 from flask_jwt_extended import JWTManager
 from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
 from datetime import timedelta
-# from flask_swagger_ui import get_swaggerui_blueprint
 
 import json
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-##
 db_connector = mysql.connector.connect(
         host="localhost",
         user="root",
@@ -22,7 +20,6 @@ db_connector = mysql.connector.connect(
         database="hotel_database"
     )
 cursor = db_connector.cursor()
-###
 
 JWTManager(app)
 
@@ -43,7 +40,6 @@ def login():
     email = request.args.get('email')
     password = request.args.get('password')
     if email == 'nymur@w3engineers.com' and password == 'admin':
-#       #we will generate Jwt token Here 
         token = create_access_token(identity= email, expires_delta=timedelta(minutes=30))
         return jsonify({'token': token})
   
@@ -51,7 +47,6 @@ def login():
         return 'Invalid Credentials. Please try again.'
         
 
-#for Databse 
 @app.get('/resources/v1/hotels')
 @jwt_required()
 @swag_from('./static/hotel.yaml')
@@ -152,9 +147,13 @@ def resources():
         query=sql
         cursor.execute(query)
         results = cursor.fetchall()
+
+
         for x in results:
             data = {'id': x[0], 'location': x[1], 'hotel_name': x[2], 'rating': float(x[3]), 'stars': int(x[4]), 'cost': int(x[5].replace(",","")), 'facility': x[6], 'url': x[7]}
             hotels.append(data)
+        if request.args.get('sort_by_price') == 'true':
+            hotels.sort(key=lambda x: x['cost'])
         return jsonify(hotels)
        
 app.run()
