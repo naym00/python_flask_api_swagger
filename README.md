@@ -12,8 +12,8 @@ Then fullfill other fields.
 - [x] Install XAMPP 
 
 ## Step 1 Database:
-- [x] create a database named in hotel_database and then import hotel_database.sql
-Note: If the data_from_web.sql doesn't work then create table using the query bellow
+- [x] Create a database named in hotel_database and then import hotel_database.sql<br />
+Note: If the hotel_database.sql doesn't work then create table using the query bellow
 ```
 CREATE TABLE hotel_database.hotel_information (
   id int(11) NOT NULL AUTO INCREMENT,
@@ -26,25 +26,24 @@ CREATE TABLE hotel_database.hotel_information (
   url varchar(500) DEFAULT NULL
 );
 ```
-
-- [x] virtualenv venv
 ## Step 2:
-- [x] source venv/bin/activate
+- [x] virtualenv venv
 ## Step 3:
+- [x] source venv/bin/activate
+## Step 4:
 ##### Once you have activated your environment, install this packages.
 - [x] pip install flask
 - [x] pip install flask_swagger_ui
 - [x] pip install mysql-connector-python
 - [x] pip install Flask-JWT-Extended
 - [x] pip install flasgger
-## Step 4:
+## Step 5:
 ##### while virtual environment is activated then tell Flask where to find the application (app.py in your case) using the FLASK_APP environment variable with the following command.
 - [x] export FLASK_APP=app
-## Step 5:
+## Step 6:
 ##### Then specify that you want to run the application in development mode (so you can use the debugger to catch errors) with the FLASK_ENV environment variable.
 - [x] export FLASK_ENV=development
-## Step 6:
-- [x] pip install -r requirements.txt python3 app.py
 ## Step 7:
+- [x] pip install -r requirements.txt python3 app.py
+## Step 8:
 - [x] To run the project ```flask run```
-
