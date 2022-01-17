@@ -17,6 +17,7 @@ Then fullfill other fields.
 ## Step 2:
 - [x] source venv/bin/activate
 ## Step 3:
+##### Once you have activated your environment, install this packages.
 - [x] pip install flask
 - [x] pip install flask_swagger_ui
 - [x] pip install mysql-connector-python
