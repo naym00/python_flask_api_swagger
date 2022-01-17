@@ -22,7 +22,7 @@ db_connector = mysql.connector.connect(
         database="hotel_database"
     )
 cursor = db_connector.cursor()
-##
+###
 
 JWTManager(app)
 
